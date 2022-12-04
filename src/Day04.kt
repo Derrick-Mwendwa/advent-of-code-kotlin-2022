@@ -1,8 +1,8 @@
 fun main() {
+    val regex = Regex("""([0-9]+)-([0-9]+),([0-9]+)-([0-9]+)""")
+
     fun part1(input: List<String>): Int {
         val sections = input.map {
-            val pattern = """([0-9]+)-([0-9]+),([0-9]+)-([0-9]+)"""
-            val regex = Regex(pattern)
             val (m1, m2, m3, m4) = regex.matchEntire(it)!!.destructured
             IntRange(m1.toInt(), m2.toInt()) to IntRange(m3.toInt(), m4.toInt())
         }
@@ -15,8 +15,6 @@ fun main() {
 
     fun part2(input: List<String>): Int {
         val sections = input.map {
-            val pattern = """([0-9]+)-([0-9]+),([0-9]+)-([0-9]+)"""
-            val regex = Regex(pattern)
             val (m1, m2, m3, m4) = regex.matchEntire(it)!!.destructured
             IntRange(m1.toInt(), m2.toInt()) to IntRange(m3.toInt(), m4.toInt())
         }
